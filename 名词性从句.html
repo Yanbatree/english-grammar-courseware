@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>名词性从句 | 新东方面试试讲</title>
+<style>
+  :root {
+    --bg:#1a1d28;--surface:#232738;--surface-light:#2c3042;--text:#e8e6e1;--text-dim:#a09d95;
+    --gold:#d4a355;--gold-light:#f0c97a;--red:#e05550;--red-light:#ff6b63;
+    --green:#4a9e6b;--blue:#5a8ec9;--blue-light:#7aafe8;--purple:#8b6fbf;--border:#383c4e;
+    --shadow:0 4px 24px rgba(0,0,0,.4);--radius:12px;--transition:0.45s cubic-bezier(.4,0,.2,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC",-apple-system,sans-serif;background:var(--bg);color:var(--text);height:100vh;width:100vw;overflow:hidden;user-select:none;-webkit-user-select:none}
+  body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 30% 20%,rgba(212,163,85,.06)0%,transparent 55%),radial-gradient(ellipse at 70% 80%,rgba(90,142,201,.05)0%,transparent 55%),radial-gradient(ellipse at 50% 50%,rgba(139,111,191,.04)0%,transparent 60%);pointer-events:none;z-index:0}
+  body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.6}
+  .presentation{position:relative;z-index:1;width:100%;height:100%;display:flex;align-items:center;justify-content:center}
+  .slide{position:absolute;width:96vw;height:94vh;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:clamp(24px,4vh,56px) clamp(28px,5vw,72px);display:flex;flex-direction:column;opacity:0;transform:translateY(20px) scale(.97);transition:var(--transition);pointer-events:none;overflow-y:auto}
+  .slide.active{opacity:1;transform:translateY(0)scale(1);pointer-events:auto}
+  .slide.exit-up{opacity:0;transform:translateY(-30px)scale(.97)}
+  .slide.exit-down{opacity:0;transform:translateY(30px)scale(.97)}
+  .slide::-webkit-scrollbar{width:4px}.slide::-webkit-scrollbar-track{background:transparent}.slide::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
+  .slide-header{display:flex;align-items:center;gap:14px;margin-bottom:28px;padding-bottom:16px;border-bottom:2px solid var(--border)}
+  .slide-num{font-size:clamp(11px,1vw,14px);font-weight:600;color:var(--gold);background:rgba(212,163,85,.12);padding:5px 12px;border-radius:20px;letter-spacing:.04em}
+  .slide-title{font-size:clamp(20px,2vw,32px);font-weight:700;color:var(--text);letter-spacing:.02em}
+  .slide-tag{font-size:clamp(11px,1vw,14px);color:var(--red-light);background:rgba(224,85,80,.12);padding:4px 10px;border-radius:4px;margin-left:auto}
+  h1{font-size:clamp(28px,4vw,56px);font-weight:800;letter-spacing:.03em;line-height:1.3}
+  h2{font-size:clamp(20px,2.2vw,34px);font-weight:700;color:var(--text);margin-bottom:16px}
+  p{font-size:clamp(14px,1.4vw,20px);line-height:1.7;color:var(--text-dim)}
+  .big-text{font-size:clamp(15px,1.7vh,24px);line-height:1.5;color:var(--text)}
+  .highlight{color:var(--gold-light);font-weight:700}
+  .emphasis{color:var(--red-light);font-weight:700}
+  .card-grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+  .card{background:var(--surface-light);border:1px solid var(--border);border-radius:10px;padding:clamp(12px,1.6vh,22px)clamp(14px,1.6vw,24px)}
+  .card h4{font-size:clamp(13px,1.2vh,17px);color:var(--gold);margin-bottom:clamp(4px,.5vh,8px)}
+  .card p,.card li{font-size:clamp(11px,1.1vh,15px);color:var(--text-dim);line-height:1.5}
+  .card.red-border{border-left:4px solid var(--red)}.card.green-border{border-left:4px solid var(--green)}.card.blue-border{border-left:4px solid var(--blue)}.card.gold-border{border-left:4px solid var(--gold)}.card.purple-border{border-left:4px solid var(--purple)}
+  .example-box{background:var(--surface-light);border-radius:10px;padding:clamp(12px,1.6vh,22px)clamp(14px,1.8vw,26px);margin:clamp(6px,1vh,14px)0;border-left:3px solid var(--gold)}
+  .example-box .sentence{font-size:clamp(14px,1.7vh,22px);color:var(--text);margin:4px 0}
+  .example-box .label{font-size:clamp(11px,1vh,14px);color:var(--text-dim);margin-bottom:4px;text-transform:uppercase;letter-spacing:.06em}
+  .tip-box{background:linear-gradient(135deg,rgba(212,163,85,.12),rgba(240,201,122,.06));border:1px solid rgba(212,163,85,.3);border-radius:var(--radius);padding:clamp(14px,1.6vh,24px)clamp(16px,2vw,28px);margin:clamp(8px,1vh,16px)0}
+  .tip-box .tip-title{font-size:clamp(13px,1.2vh,16px);color:var(--gold);font-weight:700;margin-bottom:clamp(6px,.6vh,10px);letter-spacing:.04em}
+  .tip-box .tip-content{font-size:clamp(14px,1.6vh,22px);color:var(--text);font-weight:600;line-height:1.6}
+  .mnemonic-card{background:linear-gradient(135deg,rgba(90,142,201,.15),rgba(139,111,191,.1));border:2px solid var(--blue);border-radius:var(--radius);padding:clamp(14px,1.8vh,26px)clamp(16px,2vw,30px);margin:clamp(8px,1vh,16px)0;text-align:center}
+  .mnemonic-card .mnemonic-text{font-size:clamp(18px,2.2vh,32px);font-weight:800;color:var(--blue-light);letter-spacing:.06em;line-height:1.5}
+  .compare-table{width:100%;border-collapse:collapse;margin:clamp(6px,1vh,12px)0;font-size:clamp(11px,1.1vh,16px)}
+  .compare-table th{background:var(--surface-light);padding:clamp(8px,1vh,14px)clamp(10px,1.2vw,16px);text-align:left;font-weight:700;color:var(--text);border-bottom:2px solid var(--border)}
+  .compare-table td{padding:clamp(6px,.8vh,12px)clamp(10px,1.2vw,16px);border-bottom:1px solid var(--border);color:var(--text-dim);line-height:1.4}
+  .quiz-item{background:var(--surface-light);border-radius:10px;padding:clamp(6px,1vh,14px)clamp(10px,1.4vw,20px);margin:clamp(3px,.5vh,7px)0;cursor:pointer;transition:all .2s;border:2px solid transparent}
+  .quiz-item:hover{border-color:var(--border)}
+  .quiz-item.correct{border-color:var(--green)!important;background:rgba(74,158,107,.1)!important}
+  .quiz-item.wrong{border-color:var(--red)!important;background:rgba(224,85,80,.1)!important;animation:shake .4s}
+  .quiz-item .q-num{font-size:clamp(11px,1.3vh,14px);color:var(--gold);font-weight:700;margin-bottom:2px}
+  .quiz-item .q-sentence{font-size:clamp(13px,1.6vh,20px);color:var(--text)}
+  .quiz-item .q-options{display:flex;gap:clamp(6px,.8vw,12px);margin-top:clamp(4px,.6vh,10px)}
+  .quiz-item .q-opt{padding:clamp(5px,.7vh,9px)clamp(14px,1.6vw,22px);border-radius:20px;border:2px solid var(--border);color:var(--text-dim);font-size:clamp(12px,1.3vh,17px);cursor:pointer;transition:all .2s;background:transparent}
+  .quiz-item .q-opt:hover{border-color:var(--gold);color:var(--gold-light)}
+  .quiz-item .q-opt.chosen-correct{background:var(--green);border-color:var(--green);color:#fff}
+  .quiz-item .q-opt.chosen-wrong{background:var(--red);border-color:var(--red);color:#fff}
+  .quiz-item .q-feedback{font-size:clamp(12px,1.2vh,15px);margin-top:clamp(4px,.5vh,8px);display:none}
+  .quiz-item .q-feedback.show{display:block}.quiz-item .q-feedback.correct-fb{color:var(--green)}.quiz-item .q-feedback.wrong-fb{color:var(--red-light)}
+  @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}50%{transform:translateX(6px)}75%{transform:translateX(-4px)}}
+  .trans-toggle{display:inline-block;font-size:11px;font-weight:600;padding:3px 10px;border-radius:12px;border:1px solid var(--border);background:transparent;color:var(--text-dim);cursor:pointer;margin-left:10px;vertical-align:middle;transition:all .2s}
+  .trans-toggle:hover{border-color:var(--gold);color:var(--gold-light)}
+  .trans-toggle.on{background:rgba(212,163,85,.15);border-color:var(--gold);color:var(--gold-light)}
+  .trans-text{font-size:14px;color:var(--text-dim);margin-top:6px;padding:4px 0 4px 10px;border-left:2px solid var(--border);display:none;line-height:1.5}
+  .trans-text.show{display:block;animation:fadeIn .3s}
+  .trans-text strong{color:var(--gold-light);font-weight:700}
+  .show-more-btn{display:inline-block;font-size:12px;font-weight:600;padding:4px 14px;border-radius:14px;border:1px dashed var(--border);background:transparent;color:var(--text-dim);cursor:pointer;margin-top:8px;transition:all .2s}
+  .show-more-btn:hover{border-color:var(--blue);color:var(--blue-light)}
+  .show-more-btn.on{border-color:var(--blue);color:var(--blue-light);background:rgba(90,142,201,.1)}
+  .extra-examples{display:none;margin-top:8px}.extra-examples.show{display:block;animation:fadeIn .3s}
+  .extra-examples .ex{font-size:13px;color:var(--text-dim);line-height:1.6;padding:3px 0 3px 10px;border-left:2px solid var(--border);margin:4px 0}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(212,163,85,.4)}50%{box-shadow:0 0 0 10px rgba(212,163,85,0)}}
+  .pulse{animation:pulse 2s infinite}
+  .progress-bar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));z-index:100;transition:width .4s;border-radius:0 2px 2px 0}
+  .home-btn{position:fixed;top:12px;right:16px;z-index:100;width:38px;height:38px;border-radius:50%;background:var(--surface-light);border:1px solid var(--border);color:var(--text-dim);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;opacity:.6}
+  .home-btn:hover{opacity:1;border-color:var(--gold);color:var(--gold-light)}
+  .nav-hint{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);font-size:13px;color:var(--text-dim);z-index:50;display:flex;gap:16px;align-items:center}
+  .nav-hint kbd{background:var(--surface-light);border:1px solid var(--border);border-radius:4px;padding:3px 8px;font-size:12px;color:var(--text-dim)}
+  .nav-page,.title-slide{justify-content:center;align-items:center;text-align:center;background:linear-gradient(160deg,#232738 0%,#1d2133 50%,#1a1d28 100%);border:1px solid var(--border)}
+  .title-divider{width:80px;height:3px;background:var(--gold);margin:20px auto;border-radius:2px}
+  .subtitle{font-size:18px;color:var(--text-dim);margin-top:12px;letter-spacing:.08em}.meta{font-size:14px;color:var(--text-dim);margin-top:40px;letter-spacing:.04em}
+  .course-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:900px;margin:0 auto}
+  .course-card{background:var(--surface-light);border:1px solid var(--border);border-radius:12px;padding:28px 20px;cursor:pointer;transition:all .25s;text-align:center}
+  .course-card:hover{transform:translateY(-4px);border-color:var(--gold);box-shadow:0 8px 24px rgba(0,0,0,.3)}
+  .course-card:active{transform:scale(.96)}
+  .course-card .c-icon{font-size:32px;margin-bottom:10px}.course-card .c-title{font-size:18px;font-weight:700;color:var(--text);margin-bottom:6px}.course-card .c-sub{font-size:13px;color:var(--text-dim);line-height:1.4}
+  .course-card.active-course{border-color:var(--gold);background:linear-gradient(135deg,rgba(212,163,85,.12),rgba(240,201,122,.06))}
+  .course-card.active-course .c-title{color:var(--gold-light)}
+  .course-card.upcoming{opacity:.45;cursor:default;pointer-events:none}
+  .c-badge{display:inline-block;font-size:11px;padding:2px 10px;border-radius:10px;margin-top:8px;letter-spacing:.03em}
+  .c-badge.ready{background:rgba(74,158,107,.2);color:var(--green)}.c-badge.soon{background:rgba(160,157,149,.15);color:var(--text-dim)}
+  .hw-cards{display:flex;gap:20px;margin-top:8px}.hw-card{flex:1;background:var(--surface-light);border-radius:var(--radius);padding:24px;border-top:4px solid var(--border)}.hw-card.basic{border-top-color:var(--green)}.hw-card.advanced{border-top-color:var(--gold)}.hw-card h4{font-size:18px;margin-bottom:8px}.hw-card.basic h4{color:var(--green)}.hw-card.advanced h4{color:var(--gold)}
+  .mindmap{display:flex;gap:16px;align-items:stretch;flex-wrap:wrap}.mindmap .center-node{background:var(--gold);color:#1a1d28;font-size:16px;font-weight:800;padding:16px 24px;border-radius:12px;text-align:center;align-self:center}.mindmap .branch-group{display:flex;flex-direction:column;gap:8px;flex:1;min-width:180px}.mindmap .branch-group h4{font-size:15px;color:var(--gold);text-align:center;margin-bottom:4px}.mindmap .branch-item{background:var(--surface-light);border-radius:8px;padding:8px 12px;font-size:13px;color:var(--text-dim);border-left:3px solid var(--blue);line-height:1.5}
+  @media(max-width:768px){.slide{padding:28px 24px;width:98vw;height:94vh}h1{font-size:32px}h2{font-size:24px}.big-text{font-size:19px}.card-grid{grid-template-columns:1fr}.course-grid{grid-template-columns:1fr 1fr}.nav-hint{bottom:16px;font-size:11px}}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+<button class="home-btn" onclick="goToSlide(0)" title="返回导航页">⌂</button>
+<div class="nav-hint"><span><kbd>&uarr;</kbd><kbd>&darr;</kbd>或滚轮翻页</span><span>左半屏← →右半屏 | <kbd>Home</kbd>返回导航</span></div>
+
+<div class="presentation" id="presentation">
+
+<!-- ═══ SLIDE 0: 导航页 ═══ -->
+<div class="slide active nav-page">
+  <div style="font-size:14px;color:var(--gold);letter-spacing:.08em;margin-bottom:8px;">NEW ORIENTAL · GRAMMAR SERIES</div>
+  <h1 style="font-size:36px;">高中英语语法系列</h1>
+  <div class="title-divider"></div>
+  <p style="font-size:16px;color:var(--text-dim);margin-bottom:36px;">点击课程卡片进入对应语法专题</p>
+  <div class="course-grid">
+    <div class="course-card upcoming"><div class="c-icon">📖</div><div class="c-title">定语从句</div><div class="c-sub">关系代词 · 高考核心语法</div><span class="c-badge soon">课1/2 已就绪</span></div>
+    <div class="course-card active-course" onclick="event.stopPropagation();goToSlide(1)"><div class="c-icon">📝</div><div class="c-title">名词性从句</div><div class="c-sub">主语/宾语/表语/同位语从句</div><span class="c-badge ready">已就绪</span></div>
+    <div class="course-card upcoming"><div class="c-icon">🔗</div><div class="c-title">状语从句</div><div class="c-sub">时间/条件/原因/让步/目的</div><span class="c-badge soon">即将上线</span></div>
+    <div class="course-card upcoming"><div class="c-icon">⏳</div><div class="c-title">时态语态</div><div class="c-sub">16种时态+被动语态梳理</div><span class="c-badge soon">即将上线</span></div>
+    <div class="course-card upcoming"><div class="c-icon">🔄</div><div class="c-title">非谓语动词</div><div class="c-sub">不定式·动名词·分词</div><span class="c-badge soon">即将上线</span></div>
+    <div class="course-card upcoming"><div class="c-icon">🎯</div><div class="c-title">虚拟语气</div><div class="c-sub">if条件句·wish/suggest等</div><span class="c-badge soon">即将上线</span></div>
+  </div>
+  <div style="margin-top:32px;font-size:13px;color:var(--text-dim);">点击<span style="color:var(--gold-light);">名词性从句</span>开始试讲 | <kbd style="background:var(--surface-light);border:1px solid var(--border);border-radius:3px;padding:2px 7px;font-size:12px;">Home</kbd>返回导航</div>
+</div>
+
+<!-- ═══ SLIDE 1: 封面 ═══ -->
+<div class="slide title-slide"><div style="font-size:16px;color:var(--gold);letter-spacing:.08em;margin-bottom:12px;">NOUN CLAUSES</div><h1>名词性从句</h1><div class="title-divider"></div><div class="subtitle">主语从句 · 宾语从句 · 表语从句 · 同位语从句</div><div class="meta">新东方 · 高中英语语法专题 · 40分钟试讲</div></div>
+
+<!-- ═══ SLIDE 2: 导入 ═══ -->
+<div class="slide">
+  <div class="slide-header"><span class="slide-num">PART 1 · 导入</span><span class="slide-title">课堂导入 — 一句话可以是主语吗？</span><span class="slide-tag">5 min</span></div>
+  <p style="margin-bottom:16px;">同学们，名词可以做主语、宾语——那<strong>一句话</strong>能不能当名词用？能！这就是名词性从句。</p>
+  <div class="example-box"><div class="label">🌍 日常对话</div><div class="sentence"><span class="highlight">What he said</span> surprised everyone.<button class="trans-toggle" onclick="toggleTrans(this)">中</button></div><div class="trans-text"><strong>他说的话</strong>让所有人惊讶。</div></div>
+  <div class="example-box"><div class="label">🎓 学习感悟</div><div class="sentence">I believe <span class="highlight">that hard work pays off</span>.<button class="trans-toggle" onclick="toggleTrans(this)">中</button></div><div class="trans-text">我相信<strong>努力就会有回报</strong>。</div></div>
+  <div class="example-box"><div class="label">🏀 科比名言</div><div class="sentence">The question is <span class="highlight">whether we can finish on time</span>.<button class="trans-toggle" onclick="toggleTrans(this)">中</button></div><div class="trans-text">问题是<strong>我们能否按时完成</strong>。</div></div>
+  <div class="example-box"><div class="label">📰 新闻</div><div class="sentence">The news <span class="highlight">that China launched the rocket</span> excited everyone.<button class="trans-toggle" onclick="toggleTrans(this)">中</button></div><div class="trans-text"><strong>中国发射了火箭的</strong>消息让所有人兴奋。</div></div>
+  <div class="example-box"><div class="label">🤔 思考</div><div class="sentence"><span class="highlight">Who will win</span> is still unknown.<button class="trans-toggle" onclick="toggleTrans(this)">中</button></div><div class="trans-text"><strong>谁会赢</strong>还不知道。</div></div>
+  <div class="tip-box" style="margin-top:12px;"><div class="tip-title">📌 发现规律</div><div class="tip-content">以上彩色部分都是一句完整的话，但它们充当了<strong style="color:var(--gold-light);">主语、宾语、表语、同位语</strong>——这就是名词性从句！</div></div>
+</div>
+
+<!-- ═══ SLIDE 3: 概念总览 ═══ -->
+<div class="slide">
+  <div class="slide-header"><span class="slide-num">PART 1 · 导入</span><span class="slide-title">名词性从句四大类型</span></div>
+  <div class="big-text" style="margin-bottom:16px;">名词性从句 = 一个句子充当<strong style="color:var(--gold-light);">名词</strong>的角色</div>
+  <div class="card-grid" style="grid-template-columns:repeat(2,1fr);">
+    <div class="card blue-border"><h4>① 主语从句</h4><p style="margin:4px 0;"><span class="highlight">What you need</span> is practice.<button class="trans-toggle" onclick="toggleTrans(this)">中</button></p><div class="trans-text"><strong>你需要的</strong>是练习。</div><p style="font-size:12px;color:var(--text-dim);">从句在句首 → 作主语</p></div>
+    <div class="card green-border"><h4>② 宾语从句</h4><p style="margin:4px 0;">I know <span class="highlight">that you are right</span>.<button class="trans-toggle" onclick="toggleTrans(this)">中</button></p><div class="trans-text">我知道<strong>你是对的</strong>。</div><p style="font-size:12px;color:var(--text-dim);">从句在动词后 → 作宾语</p></div>
+    <div class="card gold-border"><h4>③ 表语从句</h4><p style="margin:4px 0;">The truth is <span class="highlight">that he lied</span>.<button class="trans-toggle" onclick="toggleTrans(this)">中</button></p><div class="trans-text">事实是<strong>他撒谎了</strong>。</div><p style="font-size:12px;color:var(--text-dim);">从句在 be 动词后 → 作表语</p></div>
+    <div class="card red-border"><h4>④ 同位语从句</h4><p style="margin:4px 0;">The fact <span class="emphasis">that he failed</span> shocked us.<button class="trans-toggle" onclick="toggleTrans(this)">中</button></p><div class="trans-text"><strong>他失败了的</strong>事实震惊了我们。</div><p style="font-size:12px;color:var(--text-dim);">从句解释前面的抽象名词</p></div>
+  </div>
+  <div class="tip-box" style="margin-top:14px;"><div class="tip-title">🔑 一句话总结</div><div class="tip-content">名词性从句：<strong style="color:var(--gold-light);">一个句子，充当名词</strong> → 哪里能放名词，哪里就能放名词性从句！</div></div>
+</div>
+
+<!-- ═══ SLIDE 4: 学习目标 ═══ -->
+<div class="slide">
+  <div class="slide-header"><span class="slide-num">PART 1 · 导入</span><span class="slide-title">本节课学习目标</span></div>
+  <div style="display:flex;gap:24px;align-items:stretch;margin-top:16px;">
+    <div style="flex:1;background:linear-gradient(160deg,rgba(74,158,107,.15),rgba(74,158,107,.04));border:1px solid rgba(74,158,107,.25);border-radius:16px;padding:24px 18px;text-align:center;"><div style="width:48px;height:48px;border-radius:50%;background:var(--green);color:#fff;font-size:22px;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;box-shadow:0 4px 16px rgba(74,158,107,.3);">①</div><h4 style="font-size:clamp(15px,1.5vh,19px);color:var(--text);margin-bottom:6px;">识别四大类型</h4><p style="font-size:clamp(12px,1.1vh,14px);color:var(--text-dim);line-height:1.6;">区分主语/宾语/表语/<br>同位语从句</p></div>
+    <div style="display:flex;align-items:center;color:var(--gold);font-size:22px;font-weight:700;">→</div>
+    <div style="flex:1;background:linear-gradient(160deg,rgba(224,85,80,.12),rgba(224,85,80,.03));border:1px solid rgba(224,85,80,.22);border-radius:16px;padding:24px 18px;text-align:center;"><div style="width:48px;height:48px;border-radius:50%;background:var(--red);color:#fff;font-size:22px;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;box-shadow:0 4px 16px rgba(224,85,80,.3);">②</div><h4 style="font-size:clamp(15px,1.5vh,19px);color:var(--text);margin-bottom:6px;">掌握连接词</h4><p style="font-size:clamp(12px,1.1vh,14px);color:var(--text-dim);line-height:1.6;">that / whether/if /<br>what / who / when / why...</p></div>
+    <div style="display:flex;align-items:center;color:var(--gold);font-size:22px;font-weight:700;">→</div>
+    <div style="flex:1;background:linear-gradient(160deg,rgba(212,163,85,.15),rgba(212,163,85,.04));border:1px solid rgba(212,163,85,.28);border-radius:16px;padding:24px 18px;text-align:center;position:relative;"><div style="width:48px;height:48px;border-radius:50%;background:var(--gold);color:#1a1d28;font-size:22px;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;box-shadow:0 4px 16px rgba(212,163,85,.4);">③</div><h4 style="font-size:clamp(15px,1.5vh,19px);color:var(--text);margin-bottom:6px;">区分同位语 vs 定语</h4><p style="font-size:clamp(12px,1.1vh,14px);color:var(--text-dim);line-height:1.6;">高考最易混淆的<strong style="color:var(--red-light);">陷阱题</strong></p><div style="position:absolute;top:-10px;right:-6px;font-size:24px;">🏆</div></div>
+  </div>
+  <div style="text-align:center;margin-top:18px;font-size:clamp(13px,1.2vh,15px);color:var(--text-dim);">三关通关 → <span style="color:var(--gold-light);font-weight:700;">名词性从句</span>拿下！</div>
+</div>
+
+<!-- ═══ SLIDE 5: 连接词 that ═══ -->
+<div class="slide">
+  <div class="slide-header"><span class="slide-num">PART 2 · 新知精讲</span><span class="slide-title">连接词 that — 不做成分，只起连接作用</span><span class="slide-tag">18 min</span></div>
+  <div class="big-text" style="margin-bottom:14px;">that 引导名词性从句时<strong style="color:var(--red-light);">不充当任何成分</strong>，只起"引导"作用。</div>
+  <div class="card-grid" style="grid-template-columns:repeat(2,1fr);">
+    <div class="card blue-border"><h4>主语从句</h4><p><span class="highlight">That</span> he passed the exam is great.<button class="trans-toggle" onclick="toggleTrans(this)">中</button></p><div class="trans-text"><strong>他通过了考试</strong>这件事很棒。</div><p style="font-size:12px;color:var(--text-dim);margin-top:4px;">⚠ 句首 that 不能省略</p></div>
+    <div class="card green-border"><h4>宾语从句</h4><p>I think (<span class="highlight">that</span>) she is right.<button class="trans-toggle" onclick="toggleTrans(this)">中</button></p><div class="trans-text">我认为<strong>她是对的</strong>。</div><p style="font-size:12px;color:var(--text-dim);margin-top:4px;">口语中 that 可省略</p></div>
+    <div class="card gold-border"><h4>表语从句</h4><p>The problem is <span class="highlight">that</span> we have no time.<button class="trans-toggle" onclick="toggleTrans(this)">中</button></p><div class="trans-text">问题是<strong>我们没有时间</strong>。</div><p style="font-size:12px;color:var(--text-dim);margin-top:4px;">that 一般不省略</p></div>
+    <div class="card red-border"><h4>同位语从句</h4><p>The idea <span class="emphasis">that</span> we should start early is good.<button class="trans-toggle" onclick="toggleTrans(this)">中</button></p><div class="trans-text"><strong>我们应该早点开始的</strong>想法很好。</div><p style="font-size:12px;color:var(--text-dim);margin-top:4px;">that 不能省略</p></div>
+  </div>
+  <div class="tip-box" style="margin-top:12px;"><div class="tip-title">💡 秒记</div><div class="tip-content">that 引导名词性从句 = <strong style="color:var(--gold-light);">"这件事"</strong>。<br><span style="font-size:14px;color:var(--text-dim);">口诀：<strong>"名从中 that 不成分，宾从中 that 可省略"</strong></span></div></div>
+</div>
+
+<!-- ═══ SLIDE 6: whether/if ═══ -->
+<div class="slide">
+  <div class="slide-header"><span class="slide-num">PART 2 · 新知精讲</span><span class="slide-title">whether / if — 表示"是否"</span><span class="slide-tag">易错坑</span></div>
+  <div class="big-text" style="margin-bottom:14px;">whether 和 if 都表"是否"，但<strong style="color:var(--red-light);">并非总能互换</strong>！</div>
+  <table class="compare-table"><thead><tr><th>情况</th><th>whether</th><th>if</th><th>说明</th></tr></thead><tbody>
+    <tr><td>宾语从句（动词后）</td><td style="color:var(--green);">✓</td><td style="color:var(--green);">✓</td><td>I wonder <strong>whether/if</strong> he will come.</td></tr>
+    <tr><td>主语从句（句首）</td><td style="color:var(--green);">✓</td><td style="color:var(--red);">✗</td><td class="trap">⚠ <strong>Whether</strong> he comes doesn't matter.</td></tr>
+    <tr><td>表语从句</td><td style="color:var(--green);">✓</td><td style="color:var(--red);">✗</td><td class="trap">⚠ The question is <strong>whether</strong>...</td></tr>
+    <tr><td>同位语从句</td><td style="color:var(--green);">✓</td><td style="color:var(--red);">✗</td><td class="trap">⚠ the question <strong>whether</strong>...</td></tr>
+    <tr><td>介词后</td><td style="color:var(--green);">✓</td><td style="color:var(--red);">✗</td><td class="trap">⚠ It depends on <strong>whether</strong>...</td></tr>
+    <tr><td>or not 紧跟前</td><td style="color:var(--green);">✓</td><td style="color:var(--red);">✗</td><td class="trap">⚠ <strong>Whether</strong> or not he comes...</td></tr>
+  </tbody></table>
+  <div class="mnemonic-card" style="margin-top:12px;padding:12px 24px;"><div class="mnemonic-text" style="font-size:clamp(16px,1.6vh,22px);">"句首表同介 or not，只用 whether 不用 if"</div></div>
+</div>
+
+<!-- ═══ SLIDE 7: wh- 连接词 ═══ -->
+<div class="slide">
+  <div class="slide-header"><span class="slide-num">PART 2 · 新知精讲</span><span class="slide-title">wh- 连接词 — 自带含义，充当成分</span></div>
+  <div class="big-text" style="margin-bottom:14px;">what/who/which/when/where/why/how 引导名词性从句时，<strong style="color:var(--gold-light);">本身在从句中充当成分</strong>。</div>
+  <div class="card-grid" style="grid-template-columns:repeat(3,1fr);">
+    <div class="card blue-border"><h4>what = 所……的（东西/事）</h4><p><span class="highlight">What</span> he said is true.<button class="trans-toggle" onclick="toggleTrans(this)">中</button></p><div class="trans-text"><strong>他所说的</strong>是真的。</div><p style="font-size:12px;color:var(--text-dim);">what 作 said 的宾语</p></div>
+    <div class="card green-border"><h4>who = 谁</h4><p>I don't know <span class="highlight">who</span> did it.<button class="trans-toggle" onclick="toggleTrans(this)">中</button></p><div class="trans-text">我不知道<strong>谁干的</strong>。</div><p style="font-size:12px;color:var(--text-dim);">who 作 did 的主语</p></div>
+    <div class="card gold-border"><h4>when / where / why / how</h4><p>Tell me <span class="highlight">when</span> you will arrive.<button class="trans-toggle" onclick="toggleTrans(this)">中</button></p><div class="trans-text">告诉我<strong>你什么时候到</strong>。</div><p style="font-size:12px;color:var(--text-dim);">when 作时间状语</p></div>
+  </div>
+  <div class="tip-box" style="margin-top:12px;"><div class="tip-title">💡 秒记</div><div class="tip-content">that → 不成分（只连接）&nbsp;|&nbsp; whether/if → "是否" &nbsp;|&nbsp; wh-词 → <strong style="color:var(--gold-light);">自带含义 + 充当成分</strong></div></div>
+</div>
+
+<!-- ═══ SLIDE 8: 同位语 vs 定语从句 ═══ -->
+<div class="slide">
+  <div class="slide-header"><span class="slide-num">PART 2 · 新知精讲</span><span class="slide-title">同位语从句 vs 定语从句 — 高考最大陷阱</span><span class="slide-tag">必考</span></div>
+  <div class="big-text" style="margin-bottom:12px;">同样跟在名词后面，怎么区分？关键看<strong style="color:var(--red-light);">从句和名词的关系</strong>。</div>
+  <table class="compare-table"><thead><tr><th></th><th>同位语从句</th><th>定语从句</th></tr></thead><tbody>
+    <tr><td>关系</td><td>解释名词的<strong>内容</strong></td><td>修饰名词的<strong>特征</strong></td></tr>
+    <tr><td>that 的作用</td><td><span style="color:var(--red-light);">不充当成分</span>（只连接）</td><td><span style="color:var(--blue-light);">充当成分</span>（主语/宾语）</td></tr>
+    <tr><td>先行词</td><td>抽象名词：fact/news/idea/hope/belief...</td><td>任何名词</td></tr>
+    <tr><td>例句</td><td>The news <strong style="color:var(--red-light);">that he won</strong> made us happy.<br><span style="font-size:12px;">(news 的内容 = he won，that 不成分)</span></td><td>The news <strong style="color:var(--blue-light);">that he told us</strong> made us happy.<br><span style="font-size:12px;">(他告诉我们的消息 → that 作 told 的宾语)</span></td></tr>
+  </tbody></table>
+  <div class="mnemonic-card" style="margin-top:12px;padding:12px 24px;"><div class="mnemonic-text" style="font-size:clamp(15px,1.5vh,20px);">"同位 that 不成分，定从 that 必成分"<br><span style="font-size:13px;color:var(--text-dim);">判断法：去掉 that，从句完整→同位语 / 从句残缺→定语</span></div></div>
+</div>
+
+<!-- ═══ SLIDE 9: 宾语从句练 ═══ -->
+<div class="slide">
+  <div class="slide-header"><span class="slide-num">PART 2 · 随堂练</span><span class="slide-title">宾语从句练习</span><span class="slide-tag">讲完即练 · 4题</span></div>
+  <div class="quiz-item" data-answer="that"><div class="q-num">1</div><div class="q-sentence">I believe <span style="text-decoration:underline wavy var(--gold);text-underline-offset:4px;">______</span> she is honest.<button class="trans-toggle" onclick="toggleTrans(this)">中</button></div><div class="trans-text">我相信<strong>她是诚实的</strong>。</div><div class="q-options"><span class="q-opt" onclick="checkAnswer(this,'that')">that</span><span class="q-opt" onclick="checkAnswer(this,'that')">what</span><span class="q-opt" onclick="checkAnswer(this,'that')">whether</span></div><div class="q-feedback correct-fb" data-fb="c">✅ 从句完整不缺成分 → that！宾语从句中 that 可省略。</div><div class="q-feedback wrong-fb" data-fb="w">❌ she is honest 主语谓语完整 → 用 that 只起连接作用！</div></div>
+  <div class="quiz-item" data-answer="what"><div class="q-num">2</div><div class="q-sentence">I don't understand <span style="text-decoration:underline wavy var(--gold);text-underline-offset:4px;">______</span> you mean.<button class="trans-toggle" onclick="toggleTrans(this)">中</button></div><div class="trans-text">我不明白<strong>你的意思</strong>。</div><div class="q-options"><span class="q-opt" onclick="checkAnswer(this,'what')">that</span><span class="q-opt" onclick="checkAnswer(this,'what')">what</span><span class="q-opt" onclick="checkAnswer(this,'what')">whether</span></div><div class="q-feedback correct-fb" data-fb="c">✅ mean 后面缺宾语 → what（= the thing that）！</div><div class="q-feedback wrong-fb" data-fb="w">❌ you mean ___ → mean 缺宾语 → 需要充当成分的词 → what！</div></div>
+  <div class="quiz-item" data-answer="whether"><div class="q-num">3</div><div class="q-sentence">I wonder <span style="text-decoration:underline wavy var(--gold);text-underline-offset:4px;">______</span> he will come or not.<button class="trans-toggle" onclick="toggleTrans(this)">中</button></div><div class="trans-text">我想知道<strong>他是否会来</strong>。</div><div class="q-options"><span class="q-opt" onclick="checkAnswer(this,'whether')">that</span><span class="q-opt" onclick="checkAnswer(this,'whether')">what</span><span class="q-opt" onclick="checkAnswer(this,'whether')">whether</span></div><div class="q-feedback correct-fb" data-fb="c">✅ "是否" + or not → whether！宾语从句中 if 也可，但正式用 whether。</div><div class="q-feedback wrong-fb" data-fb="w">❌ or not 提示"是否" → whether（或 if）！</div></div>
+  <div class="quiz-item" data-answer="who"><div class="q-num">4</div><div class="q-sentence">Do you know <span style="text-decoration:underline wavy var(--gold);text-underline-offset:4px;">______</span> broke the window?<button class="trans-toggle" onclick="toggleTrans(this)">中</button></div><div class="trans-text">你知道<strong>谁打破了窗户</strong>吗？</div><div class="q-options"><span class="q-opt" onclick="checkAnswer(this,'who')">who</span><span class="q-opt" onclick="checkAnswer(this,'who')">whom</span><span class="q-opt" onclick="checkAnswer(this,'who')">whose</span></div><div class="q-feedback correct-fb" data-fb="c">✅ broke 缺主语 → who！</div><div class="q-feedback wrong-fb" data-fb="w">❌ broke the window 缺主语 → who（作主语）！</div></div>
+</div>
+
+<!-- ═══ SLIDE 10: 主语/表语/同位语练 ═══ -->
+<div class="slide">
+  <div class="slide-header"><span class="slide-num">PART 2 · 随堂练</span><span class="slide-title">主语/表语/同位语从句练习</span><span class="slide-tag">讲完即练 · 5题</span></div>
+  <div class="quiz-item" data-answer="What"><div class="q-num">5</div><div class="q-sentence"><span style="text-decoration:underline wavy var(--gold);text-underline-offset:4px;">______</span> he needs is more time.<button class="trans-toggle" onclick="toggleTrans(this)">中</button></div><div class="trans-text"><strong>他所需要的</strong>是更多时间。</div><div class="q-options"><span class="q-opt" onclick="checkAnswer(this,'What')">That</span><span class="q-opt" onclick="checkAnswer(this,'What')">What</span><span class="q-opt" onclick="checkAnswer(this,'What')">Whether</span></div><div class="q-feedback correct-fb" data-fb="c">✅ needs 缺宾语 → What！主语从句句首不能用 That（That 表"那件事"时可用但含义不同）。</div><div class="q-feedback wrong-fb" data-fb="w">❌ he needs ___ → 缺宾语 → 用 What（= the thing that）！That 不充当成分。</div></div>
+  <div class="quiz-item" data-answer="That"><div class="q-num">6</div><div class="q-sentence"><span style="text-decoration:underline wavy var(--gold);text-underline-offset:4px;">______</span> the earth is round is a fact.<button class="trans-toggle" onclick="toggleTrans(this)">中</button></div><div class="trans-text"><strong>地球是圆的</strong>是一个事实。</div><div class="q-options"><span class="q-opt" onclick="checkAnswer(this,'That')">That</span><span class="q-opt" onclick="checkAnswer(this,'That')">What</span><span class="q-opt" onclick="checkAnswer(this,'That')">Whether</span></div><div class="q-feedback correct-fb" data-fb="c">✅ 从句完整不缺成分 → That！That 在句首引导主语从句不能省略。</div><div class="q-feedback wrong-fb" data-fb="w">❌ the earth is round 主谓完整 → 不需要充当成分的词 → That！</div></div>
+  <div class="quiz-item" data-answer="whether"><div class="q-num">7</div><div class="q-sentence">The question is <span style="text-decoration:underline wavy var(--gold);text-underline-offset:4px;">______</span> we should go.<button class="trans-toggle" onclick="toggleTrans(this)">中</button></div><div class="trans-text">问题是<strong>我们是否该去</strong>。</div><div class="q-options"><span class="q-opt" onclick="checkAnswer(this,'whether')">that</span><span class="q-opt" onclick="checkAnswer(this,'whether')">what</span><span class="q-opt" onclick="checkAnswer(this,'whether')">whether</span></div><div class="q-feedback correct-fb" data-fb="c">✅ 表语从句"是否" → whether！表语从句不用 if！</div><div class="q-feedback wrong-fb" data-fb="w">❌ 表语从句中"是否"必须用 whether！if 不能引导表语从句！</div></div>
+  <div class="quiz-item" data-answer="that"><div class="q-num">8</div><div class="q-sentence">The fact <span style="text-decoration:underline wavy var(--gold);text-underline-offset:4px;">______</span> she was late surprised no one.<button class="trans-toggle" onclick="toggleTrans(this)">中</button></div><div class="trans-text"><strong>她迟到了的</strong>事实没有让任何人惊讶。</div><div class="q-options"><span class="q-opt" onclick="checkAnswer(this,'that')">that</span><span class="q-opt" onclick="checkAnswer(this,'that')">which</span><span class="q-opt" onclick="checkAnswer(this,'that')">what</span></div><div class="q-feedback correct-fb" data-fb="c">✅ fact 后接从句解释内容 → 同位语从句！从句完整 → that 不成分。</div><div class="q-feedback wrong-fb" data-fb="w">❌ she was late 内容完整 → 同位语从句 that 只起连接作用！</div></div>
+  <div class="quiz-item" data-answer="that"><div class="q-num">9</div><div class="q-sentence">The news <span style="text-decoration:underline wavy var(--gold);text-underline-offset:4px;">______</span> you told me is exciting.<button class="trans-toggle" onclick="toggleTrans(this)">中</button></div><div class="trans-text"><strong>你告诉我的那个</strong>消息很激动人心。</div><div class="q-options"><span class="q-opt" onclick="checkAnswer(this,'that')">that / which</span><span class="q-opt" onclick="checkAnswer(this,'that')">what</span><span class="q-opt" onclick="checkAnswer(this,'that')">whether</span></div><div class="q-feedback correct-fb" data-fb="c">✅ told 缺宾语 → 定语从句！that/which 充当宾语 → 这是定语从句不是同位语！</div><div class="q-feedback wrong-fb" data-fb="w">❌ 陷阱！you told me ___ → told 缺宾语 → 定语从句！that 充当成分！</div></div>
+</div>
+
+<!-- ═══ SLIDE 11: 综合练习① ═══ -->
+<div class="slide">
+  <div class="slide-header"><span class="slide-num">PART 3 · 随堂分层练习</span><span class="slide-title">综合练习 ①</span><span class="slide-tag">6题</span></div>
+  <div class="quiz-item" data-answer="what"><div class="q-num">1</div><div class="q-sentence"><span style="text-decoration:underline wavy var(--gold);text-underline-offset:4px;">______</span> he did surprised us all.<button class="trans-toggle" onclick="toggleTrans(this)">中</button></div><div class="trans-text"><strong>他所做的</strong>让我们都惊讶。</div><div class="q-options"><span class="q-opt" onclick="checkAnswer(this,'what')">That</span><span class="q-opt" onclick="checkAnswer(this,'what')">What</span><span class="q-opt" onclick="checkAnswer(this,'what')">Whether</span></div><div class="q-feedback correct-fb" data-fb="c">✅ 主语从句中 did 缺宾语 → What！</div><div class="q-feedback wrong-fb" data-fb="w">❌ he did ___ → did 缺宾语 → What！</div></div>
+  <div class="quiz-item" data-answer="that"><div class="q-num">2</div><div class="q-sentence">The problem is <span style="text-decoration:underline wavy var(--gold);text-underline-offset:4px;">______</span> we lack money.<button class="trans-toggle" onclick="toggleTrans(this)">中</button></div><div class="trans-text">问题是<strong>我们缺钱</strong>。</div><div class="q-options"><span class="q-opt" onclick="checkAnswer(this,'that')">that</span><span class="q-opt" onclick="checkAnswer(this,'that')">what</span><span class="q-opt" onclick="checkAnswer(this,'that')">whether</span></div><div class="q-feedback correct-fb" data-fb="c">✅ 表语从句，从句完整 → that！</div><div class="q-feedback wrong-fb" data-fb="w">❌ we lack money 主谓宾完整 → that！</div></div>
+  <div class="quiz-item" data-answer="Whether"><div class="q-num">3</div><div class="q-sentence"><span style="text-decoration:underline wavy var(--gold);text-underline-offset:4px;">______</span> we will go depends on the weather.<button class="trans-toggle" onclick="toggleTrans(this)">中</button></div><div class="trans-text"><strong>我们是否会去</strong>取决于天气。</div><div class="q-options"><span class="q-opt" onclick="checkAnswer(this,'Whether')">That</span><span class="q-opt" onclick="checkAnswer(this,'Whether')">Whether</span><span class="q-opt" onclick="checkAnswer(this,'Whether')">What</span></div><div class="q-feedback correct-fb" data-fb="c">✅ 主语从句"是否" → Whether！句首不用 if！</div><div class="q-feedback wrong-fb" data-fb="w">❌ 主语从句"是否" → Whether！句首不能用 if！"句首表同介不用 if"！</div></div>
+  <div class="quiz-item" data-answer="what"><div class="q-num">4</div><div class="q-sentence">I can't imagine <span style="text-decoration:underline wavy var(--gold);text-underline-offset:4px;">______</span> life would be like without the internet.<button class="trans-toggle" onclick="toggleTrans(this)">中</button></div><div class="trans-text">我无法想象<strong>没有互联网生活会是什么样</strong>。</div><div class="q-options"><span class="q-opt" onclick="checkAnswer(this,'what')">that</span><span class="q-opt" onclick="checkAnswer(this,'what')">what</span><span class="q-opt" onclick="checkAnswer(this,'what')">whether</span></div><div class="q-feedback correct-fb" data-fb="c">✅ be like ___ → 缺宾语 → what！</div><div class="q-feedback wrong-fb" data-fb="w">❌ would be like ___ → like 缺宾语 → what！</div></div>
+  <div class="quiz-item" data-answer="why"><div class="q-num">5</div><div class="q-sentence">I don't know <span style="text-decoration:underline wavy var(--gold);text-underline-offset:4px;">______</span> he is so angry.<button class="trans-toggle" onclick="toggleTrans(this)">中</button></div><div class="trans-text">我不知道<strong>他为什么那么生气</strong>。</div><div class="q-options"><span class="q-opt" onclick="checkAnswer(this,'why')">why</span><span class="q-opt" onclick="checkAnswer(this,'why')">that</span><span class="q-opt" onclick="checkAnswer(this,'why')">whether</span></div><div class="q-feedback correct-fb" data-fb="c">✅ "为什么" → why！wh-词自带含义。</div><div class="q-feedback wrong-fb" data-fb="w">❌ 表原因 → why！he is so angry 不缺主宾 → 排除 that/what → 用 why！</div></div>
+  <div class="quiz-item" data-answer="that"><div class="q-num">6</div><div class="q-sentence">The hope <span style="text-decoration:underline wavy var(--gold);text-underline-offset:4px;">______</span> he would recover kept us going.<button class="trans-toggle" onclick="toggleTrans(this)">中</button></div><div class="trans-text"><strong>他会康复的</strong>希望支撑着我们。</div><div class="q-options"><span class="q-opt" onclick="checkAnswer(this,'that')">that</span><span class="q-opt" onclick="checkAnswer(this,'that')">which</span><span class="q-opt" onclick="checkAnswer(this,'that')">what</span></div><div class="q-feedback correct-fb" data-fb="c">✅ hope 的内容 → 同位语从句！从句完整 → that 不成分。</div><div class="q-feedback wrong-fb" data-fb="w">❌ he would recover 主谓完整 → 同位语从句用 that！不是定语从句不能用 which！</div></div>
+</div>
+
+<!-- ═══ SLIDE 12: 综合练习② ═══ -->
+<div class="slide">
+  <div class="slide-header"><span class="slide-num">PART 3 · 随堂分层练习</span><span class="slide-title">综合练习 ②</span><span class="slide-tag">6题</span></div>
+  <div class="quiz-item" data-answer="what"><div class="q-num">7</div><div class="q-sentence"><span style="text-decoration:underline wavy var(--gold);text-underline-offset:4px;">______</span> impressed me most was his courage.<button class="trans-toggle" onclick="toggleTrans(this)">中</button></div><div class="trans-text"><strong>最让我印象深刻的</strong>是他的勇气。</div><div class="q-options"><span class="q-opt" onclick="checkAnswer(this,'what')">What</span><span class="q-opt" onclick="checkAnswer(this,'what')">That</span><span class="q-opt" onclick="checkAnswer(this,'what')">It</span></div><div class="q-feedback correct-fb" data-fb="c">✅ 主语从句，impressed 缺主语 → What！</div><div class="q-feedback wrong-fb" data-fb="w">❌ ___ impressed me most → impressed 缺主语 → What！</div></div>
+  <div class="quiz-item" data-answer="whether"><div class="q-num">8</div><div class="q-sentence">It depends on <span style="text-decoration:underline wavy var(--gold);text-underline-offset:4px;">______</span> it will rain.<button class="trans-toggle" onclick="toggleTrans(this)">中</button></div><div class="trans-text">这取决于<strong>是否会下雨</strong>。</div><div class="q-options"><span class="q-opt" onclick="checkAnswer(this,'whether')">whether</span><span class="q-opt" onclick="checkAnswer(this,'whether')">if</span><span class="q-opt" onclick="checkAnswer(this,'whether')">that</span></div><div class="q-feedback correct-fb" data-fb="c">✅ 介词 on 后面 → 只能用 whether！介词后不用 if！</div><div class="q-feedback wrong-fb" data-fb="w">❌ 介词 on 后面 → 不用 if → 必须用 whether！"句首表同介"！</div></div>
+  <div class="quiz-item" data-answer="that"><div class="q-num">9</div><div class="q-sentence">I have a feeling <span style="text-decoration:underline wavy var(--gold);text-underline-offset:4px;">______</span> something bad will happen.<button class="trans-toggle" onclick="toggleTrans(this)">中</button></div><div class="trans-text">我有一种<strong>不好的事情要发生的</strong>预感。</div><div class="q-options"><span class="q-opt" onclick="checkAnswer(this,'that')">that</span><span class="q-opt" onclick="checkAnswer(this,'that')">which</span><span class="q-opt" onclick="checkAnswer(this,'that')">what</span></div><div class="q-feedback correct-fb" data-fb="c">✅ feeling 的内容 → 同位语从句！从句完整 → that 不成分。</div><div class="q-feedback wrong-fb" data-fb="w">❌ something bad will happen 完整 → 同位语从句 → that！不能选 which！</div></div>
+  <div class="quiz-item" data-answer="how"><div class="q-num">10</div><div class="q-sentence">Can you tell me <span style="text-decoration:underline wavy var(--gold);text-underline-offset:4px;">______</span> to get to the station?<button class="trans-toggle" onclick="toggleTrans(this)">中</button></div><div class="trans-text">你能告诉我<strong>怎么去车站</strong>吗？</div><div class="q-options"><span class="q-opt" onclick="checkAnswer(this,'how')">how</span><span class="q-opt" onclick="checkAnswer(this,'how')">what</span><span class="q-opt" onclick="checkAnswer(this,'how')">that</span></div><div class="q-feedback correct-fb" data-fb="c">✅ "怎么去" → how！wh-词+to do是常见结构。</div><div class="q-feedback wrong-fb" data-fb="w">❌ "怎么/如何" → how！</div></div>
+  <div class="quiz-item" data-answer="where"><div class="q-num">11</div><div class="q-sentence">I don't remember <span style="text-decoration:underline wavy var(--gold);text-underline-offset:4px;">______</span> I put my keys.<button class="trans-toggle" onclick="toggleTrans(this)">中</button></div><div class="trans-text">我不记得<strong>把钥匙放哪了</strong>。</div><div class="q-options"><span class="q-opt" onclick="checkAnswer(this,'where')">where</span><span class="q-opt" onclick="checkAnswer(this,'where')">what</span><span class="q-opt" onclick="checkAnswer(this,'where')">that</span></div><div class="q-feedback correct-fb" data-fb="c">✅ "放在哪" → where！</div><div class="q-feedback wrong-fb" data-fb="w">❌ 问地点 → where！</div></div>
+  <div class="quiz-item" data-answer="That"><div class="q-num">12</div><div class="q-sentence"><span style="text-decoration:underline wavy var(--gold);text-underline-offset:4px;">______</span> China has made great progress in space exploration is well-known.<button class="trans-toggle" onclick="toggleTrans(this)">中</button></div><div class="trans-text"><strong>中国在太空探索上取得了巨大进步</strong>是众所周知的。</div><div class="q-options"><span class="q-opt" onclick="checkAnswer(this,'That')">That</span><span class="q-opt" onclick="checkAnswer(this,'That')">What</span><span class="q-opt" onclick="checkAnswer(this,'That')">Whether</span></div><div class="q-feedback correct-fb" data-fb="c">✅ 主语从句，从句完整不缺成分 → That！</div><div class="q-feedback wrong-fb" data-fb="w">❌ China has made... 主谓宾完整 → 不需要 what 充当成分 → That！</div></div>
+</div>
+
+<!-- ═══ SLIDE 13: 易错题 ═══ -->
+<div class="slide">
+  <div class="slide-header"><span class="slide-num">PART 3 · 随堂分层练习</span><span class="slide-title">易错题 — 同位语 vs 定语从句</span><span class="slide-tag">易错层 · 4题</span></div>
+  <div class="quiz-item" data-answer="同位语从句"><div class="q-num">易错1</div><div class="q-sentence">The news <span style="text-decoration:underline wavy var(--gold);text-underline-offset:4px;">______</span> our team won the championship spread quickly. <span style="color:var(--text-dim);">（同位语 / 定语？）</span></div><div class="q-options"><span class="q-opt" onclick="checkAnswer(this,'同位语从句')">同位语从句</span><span class="q-opt" onclick="checkAnswer(this,'同位语从句')">定语从句</span></div><div class="q-feedback correct-fb" data-fb="c">✅ 同位语！"our team won..." 是 news 的<strong>内容</strong>，从句完整 → that 不成分。</div><div class="q-feedback wrong-fb" data-fb="w">❌ "队伍夺冠" 是消息的内容，不是修饰消息的特征 → 同位语从句！</div></div>
+  <div class="quiz-item" data-answer="定语从句"><div class="q-num">易错2</div><div class="q-sentence">The news <span style="text-decoration:underline wavy var(--gold);text-underline-offset:4px;">______</span> he brought us was exciting. <span style="color:var(--text-dim);">（同位语 / 定语？）</span></div><div class="q-options"><span class="q-opt" onclick="checkAnswer(this,'定语从句')">同位语从句</span><span class="q-opt" onclick="checkAnswer(this,'定语从句')">定语从句</span></div><div class="q-feedback correct-fb" data-fb="c">✅ 定语从句！brought 缺宾语 → that/which 充当成分 → 定语从句！</div><div class="q-feedback wrong-fb" data-fb="w">❌ he brought us ___ → brought 缺宾语 → that 充当成分 → 定语从句！不是同位语！</div></div>
+  <div class="quiz-item" data-answer="what"><div class="q-num">易错3</div><div class="q-sentence">The idea <span style="text-decoration:underline wavy var(--gold);text-underline-offset:4px;">______</span> he came up with was brilliant.<button class="trans-toggle" onclick="toggleTrans(this)">中</button></div><div class="trans-text"><strong>他想出来的那个</strong>主意很聪明。</div><div class="q-options"><span class="q-opt" onclick="checkAnswer(this,'what')">that</span><span class="q-opt" onclick="checkAnswer(this,'what')">what</span></div><div class="q-feedback correct-fb" data-fb="c">✅ 这是<strong>定语从句</strong>！came up with ___ 缺宾语 → that/which 充当成分。</div><div class="q-feedback wrong-fb" data-fb="w">❌ he came up with ___ → with 缺宾语 → 定语从句！that 充当成分，不是同位语！</div></div>
+  <div class="quiz-item" data-answer="that"><div class="q-num">易错4</div><div class="q-sentence">The idea <span style="text-decoration:underline wavy var(--gold);text-underline-offset:4px;">______</span> we should start earlier is good.<button class="trans-toggle" onclick="toggleTrans(this)">中</button></div><div class="trans-text"><strong>我们应该早点开始的</strong>想法很好。</div><div class="q-options"><span class="q-opt" onclick="checkAnswer(this,'that')">that</span><span class="q-opt" onclick="checkAnswer(this,'that')">what</span></div><div class="q-feedback correct-fb" data-fb="c">✅ 同位语从句！we should start earlier 完整 → that 只连接不成分。</div><div class="q-feedback wrong-fb" data-fb="w">❌ 从句完整不缺成分 → 同位语从句 → that！不能选 what！</div></div>
+</div>
+
+<!-- ═══ SLIDE 14: 高考真题 ═══ -->
+<div class="slide">
+  <div class="slide-header"><span class="slide-num">PART 4 · 高考真题</span><span class="slide-title">近3年新高考语法填空真题</span><span class="slide-tag">真题实战</span></div>
+  <div class="quiz-item" data-answer="what"><div class="q-num">2024 · 新高考 I 卷</div><div class="q-sentence">The artist was not satisfied with <span style="text-decoration:underline wavy var(--gold);text-underline-offset:4px;">______</span> he had painted.<button class="trans-toggle" onclick="toggleTrans(this)">中</button></div><div class="trans-text">艺术家对<strong>他所画的</strong>不满意。</div><div class="q-options"><span class="q-opt" onclick="checkAnswer(this,'what')">what</span><span class="q-opt" onclick="checkAnswer(this,'what')">that</span><span class="q-opt" onclick="checkAnswer(this,'what')">which</span></div><div class="q-feedback correct-fb" data-fb="c">✅ 宾语从句，had painted 缺宾语 → what！高考经典考法！</div><div class="q-feedback wrong-fb" data-fb="w">❌ he had painted ___ → painted 缺宾语 → what（= the thing that）！</div></div>
+  <div class="quiz-item" data-answer="that"><div class="q-num">2023 · 新高考 I 卷</div><div class="q-sentence">The fact <span style="text-decoration:underline wavy var(--gold);text-underline-offset:4px;">______</span> more and more teenagers are short-sighted worries parents.<button class="trans-toggle" onclick="toggleTrans(this)">中</button></div><div class="trans-text"><strong>越来越多青少年近视的</strong>事实让家长担忧。</div><div class="q-options"><span class="q-opt" onclick="checkAnswer(this,'that')">that</span><span class="q-opt" onclick="checkAnswer(this,'that')">which</span><span class="q-opt" onclick="checkAnswer(this,'that')">what</span></div><div class="q-feedback correct-fb" data-fb="c">✅ fact 内容 → 同位语从句！从句完整 → that！高考常考同位语 vs 定语辨析！</div><div class="q-feedback wrong-fb" data-fb="w">❌ 从句完整，this 是 fact 的<strong>内容</strong> → 同位语从句 → that！不能用 which！</div></div>
+  <div class="quiz-item" data-answer="what"><div class="q-num">2023 · 全国甲卷</div><div class="q-sentence"><span style="text-decoration:underline wavy var(--gold);text-underline-offset:4px;">______</span> makes the book special is its unique perspective.<button class="trans-toggle" onclick="toggleTrans(this)">中</button></div><div class="trans-text"><strong>让这本书特别的是</strong>它独特的视角。</div><div class="q-options"><span class="q-opt" onclick="checkAnswer(this,'what')">What</span><span class="q-opt" onclick="checkAnswer(this,'what')">That</span><span class="q-opt" onclick="checkAnswer(this,'what')">It</span></div><div class="q-feedback correct-fb" data-fb="c">✅ 主语从句，makes 缺主语 → What！句首不能用 That（含义不同）。</div><div class="q-feedback wrong-fb" data-fb="w">❌ ___ makes the book special → makes 缺主语 → What！</div></div>
+  <div class="quiz-item" data-answer="whether"><div class="q-num">2022 · 新高考 II 卷</div><div class="q-sentence">The question of <span style="text-decoration:underline wavy var(--gold);text-underline-offset:4px;">______</span> we should lower the price is under discussion.<button class="trans-toggle" onclick="toggleTrans(this)">中</button></div><div class="trans-text"><strong>我们是否应该降价的</strong>问题正在讨论中。</div><div class="q-options"><span class="q-opt" onclick="checkAnswer(this,'whether')">whether</span><span class="q-opt" onclick="checkAnswer(this,'whether')">if</span><span class="q-opt" onclick="checkAnswer(this,'whether')">that</span></div><div class="q-feedback correct-fb" data-fb="c">✅ 介词 of 后面 + "是否" → whether！介词后不能用 if！</div><div class="q-feedback wrong-fb" data-fb="w">❌ of 是介词 → 介词后面不用 if → 必须用 whether！"句首表同介"！</div></div>
+  <div class="quiz-item" data-answer="why"><div class="q-num">2022 · 全国乙卷</div><div class="q-sentence">Nobody could explain <span style="text-decoration:underline wavy var(--gold);text-underline-offset:4px;">______</span> the experiment failed.<button class="trans-toggle" onclick="toggleTrans(this)">中</button></div><div class="trans-text">没有人能解释<strong>为什么实验失败了</strong>。</div><div class="q-options"><span class="q-opt" onclick="checkAnswer(this,'why')">why</span><span class="q-opt" onclick="checkAnswer(this,'why')">what</span><span class="q-opt" onclick="checkAnswer(this,'why')">that</span></div><div class="q-feedback correct-fb" data-fb="c">✅ 表原因 → why！the experiment failed 主谓完整 → why 作状语。</div><div class="q-feedback wrong-fb" data-fb="w">❌ explain 需要"为什么失败" → why！从句完整不缺主宾 → 排除 what。</div></div>
+</div>
+
+<!-- ═══ SLIDE 15: 秒杀步骤 ═══ -->
+<div class="slide">
+  <div class="slide-header"><span class="slide-num">PART 4 · 高考真题</span><span class="slide-title">做题秒杀三步法</span><span class="slide-tag">应试技巧</span></div>
+  <div style="display:flex;gap:16px;margin-top:12px;">
+    <div class="card green-border" style="flex:1;text-align:center;"><div style="font-size:36px;margin-bottom:8px;">①</div><h4>定位从句类型</h4><p>在句首？动词后？be后？<br>抽象名词后？</p></div>
+    <div style="align-self:center;font-size:22px;color:var(--gold);">→</div>
+    <div class="card blue-border" style="flex:1;text-align:center;"><div style="font-size:36px;margin-bottom:8px;">②</div><h4>看从句缺啥</h4><p>缺主语/宾语/表语<br>→ wh-词<br>完整不缺 → that/whether</p></div>
+    <div style="align-self:center;font-size:22px;color:var(--gold);">→</div>
+    <div class="card gold-border pulse" style="flex:1;text-align:center;"><div style="font-size:36px;margin-bottom:8px;">③</div><h4>套规则</h4><p>表"是否"+特殊位置<br>→ whether 不用 if</p></div>
+  </div>
+  <div class="tip-box" style="margin-top:20px;"><div class="tip-title">⚡ 考场口诀</div><div class="tip-content">一找位置二看缺<br>三套规则秒出答案<br><span style="font-size:clamp(13px,1.2vh,15px);color:var(--text-dim);">缺成分→what/who / 不成分→that / 是否→whether / if只在宾从</span></div></div>
+</div>
+
+<!-- ═══ SLIDE 16: 思维导图 ═══ -->
+<div class="slide">
+  <div class="slide-header"><span class="slide-num">PART 5 · 课堂小结</span><span class="slide-title">思维导图 — 名词性从句全梳理</span><span class="slide-tag">师生回顾</span></div>
+  <div class="mindmap">
+    <div class="center-node">名词性从句</div>
+    <div class="branch-group"><h4>类型</h4><div class="branch-item">①主语从句（句首）</div><div class="branch-item">②宾语从句（动词/介词后）</div><div class="branch-item">③表语从句（be动词后）</div><div class="branch-item" style="border-left-color:var(--red);">④同位语从句（抽象名词后）</div></div>
+    <div class="branch-group"><h4>连接词</h4><div class="branch-item">that → 不成分（仅连接）</div><div class="branch-item">whether/if → "是否"</div><div class="branch-item">what/who/wh- → 充当成分</div></div>
+    <div class="branch-group"><h4>关键考点</h4><div class="branch-item" style="border-left-color:var(--red);">同位语 vs 定语从句</div><div class="branch-item" style="border-left-color:var(--red);">whether vs if</div><div class="branch-item">what vs that</div></div>
+  </div>
+  <div class="mnemonic-card" style="margin-top:14px;padding:12px 24px;"><div class="mnemonic-text" style="font-size:clamp(15px,1.5vh,20px);">"句首表同介不用 if，同位 that 不成分定从 that 必成分"</div></div>
+</div>
+
+<!-- ═══ SLIDE 17: 分层作业 ═══ -->
+<div class="slide">
+  <div class="slide-header"><span class="slide-num">PART 5 · 作业</span><span class="slide-title">分层作业 — 基础 + 拔高</span><span class="slide-tag">课后巩固</span></div>
+  <div class="hw-cards">
+    <div class="hw-card basic"><h4>📝 基础层 · 必做</h4><ul style="color:var(--text-dim);font-size:clamp(13px,1.2vh,15px);line-height:2;padding-left:18px;"><li>背诵口诀"句首表同介不用 if"</li><li>完成课本 P52 名词性从句练习 1-10 题</li><li>整理 that/what/whether 三词用法对照表</li><li>用四种名词性从句各造 1 个句子</li></ul></div>
+    <div class="hw-card advanced"><h4>🚀 提升层 · 选做</h4><ul style="color:var(--text-dim);font-size:clamp(13px,1.2vh,15px);line-height:2;padding-left:18px;"><li>完成 2022-2025 新高考名词性从句专项（8 题）</li><li>找 5 道同位语 vs 定语从句辨析题，每题标注判断理由</li><li>用思维导图梳理名词性从句全部知识点</li></ul></div>
+  </div>
+</div>
+
+<!-- ═══ SLIDE 18: 结束页 ═══ -->
+<div class="slide title-slide">
+  <div style="font-size:16px;color:var(--gold);letter-spacing:.08em;margin-bottom:12px;">THANK YOU</div>
+  <h1>下课！</h1>
+  <div class="title-divider"></div>
+  <div class="subtitle">记住口诀 → 秒杀高考题</div>
+  <div style="margin-top:30px;font-size:clamp(16px,1.6vh,20px);color:var(--text-dim);">
+    <span style="color:var(--blue-light);">缺成分→what</span> &nbsp;|&nbsp;
+    <span style="color:var(--red-light);">不成分→that</span> &nbsp;|&nbsp;
+    <span style="color:var(--gold-light);">是否→whether</span>
+  </div>
+</div>
+
+</div><!-- end presentation -->
+
+<script>
+let currentSlide=0;const slides=document.querySelectorAll('.slide'),totalSlides=slides.length,progressBar=document.getElementById('progressBar');
+function goToSlide(i){if(i<0||i>=totalSlides||i===currentSlide)return;const o=slides[currentSlide],n=slides[i],d=i>currentSlide?'down':'up';o.classList.remove('active');o.classList.add(d==='down'?'exit-up':'exit-down');n.classList.remove('exit-up','exit-down');n.classList.add('active');progressBar.style.width=((i+1)/totalSlides*100)+'%';currentSlide=i}
+function nextSlide(){goToSlide(currentSlide+1)}function prevSlide(){goToSlide(currentSlide-1)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowDown'||e.key==='ArrowRight'||e.key==='PageDown'){e.preventDefault();nextSlide()}else if(e.key==='ArrowUp'||e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();prevSlide()}else if(e.key==='Home'){e.preventDefault();goToSlide(0)}else if(e.key==='End'){e.preventDefault();goToSlide(totalSlides-1)}});
+let tsY=0;document.addEventListener('touchstart',e=>{tsY=e.touches[0].clientY});document.addEventListener('touchend',e=>{const d=tsY-e.changedTouches[0].clientY;if(Math.abs(d)>50){d>0?nextSlide():prevSlide()}});
+progressBar.style.width=(1/totalSlides*100)+'%';
+let wt=null;document.addEventListener('wheel',e=>{if(wt)return;wt=setTimeout(()=>{wt=null},600);if(e.deltaY>30)nextSlide();else if(e.deltaY<-30)prevSlide()},{passive:true});
+document.getElementById('presentation').addEventListener('click',e=>{const t=e.target.tagName.toLowerCase();const s=e.target.closest('.q-opt,.drag-reset,.trans-toggle');if(t==='button'||t==='kbd'||s)return;e.clientX<window.innerWidth/2?prevSlide():nextSlide()});
+function checkAnswer(o,e){const q=o.closest('.quiz-item'),as=q.querySelectorAll('.q-opt'),fs=q.querySelectorAll('.q-feedback');if(o.classList.contains('chosen-correct')||o.classList.contains('chosen-wrong')){q.classList.remove('correct','wrong');q.removeAttribute('data-answered');as.forEach(a=>a.classList.remove('chosen-correct','chosen-wrong'));fs.forEach(f=>f.classList.remove('show'));return}const u=o.textContent.trim(),c=u===e,was=q.classList.contains('correct');q.classList.remove('wrong');as.forEach(a=>a.classList.remove('chosen-wrong'));fs.forEach(f=>f.classList.remove('show'));if(c){q.dataset.answered='true';q.classList.add('correct');o.classList.add('chosen-correct');fs.forEach(f=>{if(f.dataset.fb==='c')f.classList.add('show')})}else{if(!was)as.forEach(a=>a.classList.remove('chosen-correct'));q.classList.add('wrong');o.classList.add('chosen-wrong');fs.forEach(f=>{if(f.dataset.fb==='w')f.classList.add('show')})}}
+function toggleTrans(b){b.classList.toggle('on');const t=b.nextElementSibling;if(t&&t.classList.contains('trans-text'))t.classList.toggle('show');else{const p=b.parentElement.nextElementSibling;if(p&&p.classList.contains('trans-text'))p.classList.toggle('show')}}
+function toggleExamples(b){b.classList.toggle('on');b.nextElementSibling.classList.toggle('show')}
+</script>
+</body>
+</html>
