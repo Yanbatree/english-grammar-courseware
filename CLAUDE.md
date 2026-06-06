@@ -2,7 +2,7 @@
 
 ## 重要规则
 
-- **每次完成代码修改后，自动 commit 并 push 到 GitHub**（`git add -A && git commit -m "..." && git push origin master`），不需要等用户手动要求。
+- **每次完成代码修改后，自动 commit 并 push 到 GitHub，然后部署到 Vercel**（`git add -A && git commit -m "..." && git push origin master && npx vercel --prod`），不需要等用户手动要求。GitHub 自动部署已失效，需手动跑 vercel --prod。
 
 ## 项目概述
 
