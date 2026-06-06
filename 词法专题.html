@@ -293,6 +293,8 @@ let wt=null;document.addEventListener('wheel',e=>{if(wt)return;wt=setTimeout(()=
 document.getElementById('presentation').addEventListener('click',e=>{const t=e.target.tagName.toLowerCase();if(t==='button'||t==='kbd'||e.target.closest('.q-opt,.trans-toggle'))return;e.clientX<window.innerWidth/2?(currentSlide===0?window.open('index.html','_self'):prevSlide()):nextSlide()});
 function checkAnswer(o,e){const q=o.closest('.quiz-item'),as=q.querySelectorAll('.q-opt'),fs=q.querySelectorAll('.q-feedback');if(o.classList.contains('chosen-correct')||o.classList.contains('chosen-wrong')){q.classList.remove('correct','wrong');q.removeAttribute('data-answered');as.forEach(a=>a.classList.remove('chosen-correct','chosen-wrong'));fs.forEach(f=>f.classList.remove('show'));return}const u=o.textContent.trim(),c=u===e,was=q.classList.contains('correct');q.classList.remove('wrong');as.forEach(a=>a.classList.remove('chosen-wrong'));fs.forEach(f=>f.classList.remove('show'));if(c){q.dataset.answered='true';q.classList.add('correct');o.classList.add('chosen-correct');fs.forEach(f=>{if(f.dataset.fb==='c')f.classList.add('show')})}else{if(!was)as.forEach(a=>a.classList.remove('chosen-correct'));q.classList.add('wrong');o.classList.add('chosen-wrong');fs.forEach(f=>{if(f.dataset.fb==='w')f.classList.add('show')})}}
 function toggleTrans(b){b.classList.toggle('on');const t=b.nextElementSibling;if(t&&t.classList.contains('trans-text'))t.classList.toggle('show');else{const p=b.parentElement.nextElementSibling;if(p&&p.classList.contains('trans-text'))p.classList.toggle('show')}}
+
+(function(){if(location.search.includes("skipnav")){goToSlide(1);history.replaceState(null,"",location.pathname)}})();
 </script>
 </body>
 </html>

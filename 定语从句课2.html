@@ -824,6 +824,8 @@ function handleTouchEnd(e) {
   }
   touchDragEl = null;
 }
+
+(function(){if(location.search.includes("skipnav")){goToSlide(1);history.replaceState(null,"",location.pathname)}})();
 </script>
 </body>
 </html>
