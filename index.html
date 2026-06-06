@@ -6,85 +6,103 @@
 <title>新东方 · 高中英语语法课件</title>
 <style>
 :root{--bg:#1a1d28;--surface:#232738;--surface-light:#2c3042;--text:#e8e6e1;--text-dim:#a09d95;--gold:#d4a355;--gold-light:#f0c97a;--red:#e05550;--red-light:#ff6b63;--green:#4a9e6b;--blue:#5a8ec9;--blue-light:#7aafe8;--purple:#8b6fbf;--border:#383c4e}
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC",-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;align-items:center;justify-content:center;user-select:none}
-body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 30% 20%,rgba(212,163,85,.06)0%,transparent 55%),radial-gradient(ellipse at 70% 80%,rgba(90,142,201,.05)0%,transparent 55%),radial-gradient(ellipse at 50% 50%,rgba(139,111,191,.04)0%,transparent 60%);pointer-events:none;z-index:0}
-.container{position:relative;z-index:1;width:96vw;max-width:1000px;padding:clamp(28px,4vh,48px)clamp(20px,3vw,40px);text-align:center}
-h1{font-size:clamp(28px,4vw,48px);font-weight:800;line-height:1.3;margin-bottom:8px}
-.subtitle{font-size:clamp(14px,1.4vw,18px);color:var(--text-dim);margin-bottom:28px;letter-spacing:.04em}
-.divider{width:60px;height:3px;background:var(--gold);margin:0 auto 28px;border-radius:2px}
-.course-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,2vw,20px);max-width:900px;margin:0 auto}
-.course-card{background:var(--surface-light);border:1px solid var(--border);border-radius:14px;padding:clamp(18px,2.5vh,30px)clamp(14px,2vw,20px);cursor:pointer;transition:all .25s;text-align:center;text-decoration:none;display:block}
-.course-card:hover{transform:translateY(-4px);border-color:var(--gold);box-shadow:0 8px 24px rgba(0,0,0,.3)}
-.course-card:active{transform:scale(.96)}
-.course-card .c-icon{font-size:clamp(28px,3vw,38px);margin-bottom:10px}
-.course-card .c-title{font-size:clamp(16px,1.6vw,22px);font-weight:700;color:var(--text);margin-bottom:6px}
-.course-card .c-sub{font-size:clamp(12px,1.1vw,14px);color:var(--text-dim);line-height:1.5}
-.course-card .c-badge{display:inline-block;font-size:clamp(10px,.9vw,12px);padding:3px 12px;border-radius:12px;margin-top:10px}
-.c-badge.ready{background:rgba(74,158,107,.2);color:var(--green)}
-.c-badge.new{background:rgba(212,163,85,.18);color:var(--gold-light)}
-.c-badge.soon{background:rgba(160,157,149,.15);color:var(--text-dim)}
-.course-card.featured{border-color:rgba(212,163,85,.4);background:linear-gradient(135deg,rgba(212,163,85,.08),rgba(240,201,122,.04))}
-.course-card.featured .c-title{color:var(--gold-light)}
-.course-card.upcoming{opacity:.45;cursor:default;pointer-events:none}
-.footer{font-size:clamp(12px,1vw,14px);color:var(--text-dim);margin-top:32px;letter-spacing:.04em}
-.footer span{color:var(--gold-light)}
-@media(max-width:768px){.course-grid{grid-template-columns:1fr 1fr}.container{padding:24px 16px}}
-@media(max-width:480px){.course-grid{grid-template-columns:1fr}}
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC",-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;user-select:none}body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 30% 20%,rgba(212,163,85,.06)0%,transparent 55%),radial-gradient(ellipse at 70% 80%,rgba(90,142,201,.05)0%,transparent 55%),radial-gradient(ellipse at 50% 50%,rgba(139,111,191,.04)0%,transparent 60%);pointer-events:none;z-index:0}
+.container{position:relative;z-index:1;width:96vw;max-width:1100px;margin:0 auto;padding:clamp(24px,4vh,40px)clamp(16px,2vw,32px);text-align:center}
+h1{font-size:clamp(26px,3.5vw,44px);font-weight:800;margin-bottom:6px}.top-tag{font-size:clamp(11px,1vw,13px);color:var(--gold);letter-spacing:.08em;margin-bottom:6px}.divider{width:50px;height:3px;background:var(--gold);margin:0 auto 24px;border-radius:2px}
+.section-header{display:flex;align-items:center;gap:12px;margin:28px 0 14px;padding-bottom:10px;border-bottom:2px solid var(--border);text-align:left}
+.section-header .s-icon{font-size:clamp(22px,2.2vw,28px)}.section-header .s-title{font-size:clamp(16px,1.6vw,22px);font-weight:700;color:var(--text)}.section-header .s-count{font-size:clamp(11px,1vw,13px);color:var(--text-dim);margin-left:auto}
+.course-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(10px,1.5vw,16px);margin:0 auto}
+.course-card{background:var(--surface-light);border:1px solid var(--border);border-radius:12px;padding:clamp(14px,2vh,24px)clamp(10px,1.5vw,16px);cursor:pointer;transition:all .25s;text-align:center;text-decoration:none;display:block}
+.course-card:hover{transform:translateY(-3px);border-color:var(--gold);box-shadow:0 6px 20px rgba(0,0,0,.3)}.course-card:active{transform:scale(.96)}
+.course-card .c-icon{font-size:clamp(24px,2.5vw,32px);margin-bottom:6px}
+.course-card .c-title{font-size:clamp(14px,1.3vw,18px);font-weight:700;color:var(--text);margin-bottom:4px}
+.course-card .c-sub{font-size:clamp(11px,1vw,13px);color:var(--text-dim);line-height:1.4}
+.c-badge{display:inline-block;font-size:clamp(9px,.8vw,11px);padding:2px 10px;border-radius:10px;margin-top:6px}
+.c-badge.ready{background:rgba(74,158,107,.18);color:var(--green)}.c-badge.new{background:rgba(212,163,85,.16);color:var(--gold-light)}
+.course-card.lexical{border-left:3px solid var(--blue)}.course-card.grammar{border-left:3px solid var(--gold)}
+.footer{font-size:clamp(11px,1vw,13px);color:var(--text-dim);margin-top:28px;padding-top:14px;border-top:1px solid var(--border)}
+@media(max-width:900px){.course-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:640px){.course-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:400px){.course-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <div class="container">
-<div style="font-size:clamp(12px,1vw,14px);color:var(--gold);letter-spacing:.08em;margin-bottom:8px;">NEW ORIENTAL · GRAMMAR SERIES</div>
-<h1>高中英语语法系列</h1>
+<div class="top-tag">NEW ORIENTAL · GRAMMAR SERIES</div>
+<h1>高中英语语法课件</h1>
 <div class="divider"></div>
-<p class="subtitle">点击课程卡片进入对应语法专题 · 投屏授课用</p>
 
+<!-- ═══════ 词法专题 ═══════ -->
+<div class="section-header">
+<span class="s-icon">📚</span><span class="s-title">词法专题</span><span class="s-count">4 门 · 高考单选+完形核心基础</span>
+</div>
 <div class="course-grid">
-<a class="course-card" href="定语从句教学.html">
+<a class="course-card lexical" href="冠词名词主谓一致.html">
+<div class="c-icon">📖</div><div class="c-title">冠词·名词·主谓一致</div>
+<div class="c-sub">a/an/the · 可数不可数 · 三大原则</div><span class="c-badge new">新上线</span>
+</a>
+<a class="course-card lexical" href="代词形副.html">
+<div class="c-icon">🔤</div><div class="c-title">代词·形容词副词</div>
+<div class="c-sub">不定代词 · 比较级最高级 · 排序口诀</div><span class="c-badge new">新上线</span>
+</a>
+<a class="course-card lexical" href="介词固定搭配.html">
+<div class="c-icon">🔗</div><div class="c-title">介词·固定搭配</div>
+<div class="c-sub">at/on/in · 完形高频搭配20条</div><span class="c-badge new">新上线</span>
+</a>
+<a class="course-card lexical" href="情态动词.html">
+<div class="c-icon">🎯</div><div class="c-title">情态动词</div>
+<div class="c-sub">情态推测 · must/should + have done</div><span class="c-badge new">新上线</span>
+</a>
+</div>
+
+<!-- ═══════ 语法专题 ═══════ -->
+<div class="section-header">
+<span class="s-icon">📝</span><span class="s-title">语法专题</span><span class="s-count">10 门 · 从句+时态+非谓语+虚拟+句式</span>
+</div>
+<div class="course-grid">
+<a class="course-card grammar" href="定语从句教学.html">
 <div class="c-icon">📖</div><div class="c-title">定语从句 课1</div>
-<div class="c-sub">关系代词 that / which 专题 · 两条口诀秒杀</div><span class="c-badge ready">已就绪</span>
+<div class="c-sub">that / which 专题 · 两条口诀秒杀</div><span class="c-badge ready">已就绪</span>
 </a>
-<a class="course-card" href="定语从句课2.html">
+<a class="course-card grammar" href="定语从句课2.html">
 <div class="c-icon">📖</div><div class="c-title">定语从句 课2</div>
-<div class="c-sub">关系代词 who / whom / whose 专题</div><span class="c-badge ready">已就绪</span>
+<div class="c-sub">who / whom / whose 专题</div><span class="c-badge ready">已就绪</span>
 </a>
-<a class="course-card" href="名词性从句.html">
+<a class="course-card grammar" href="名词性从句.html">
 <div class="c-icon">📝</div><div class="c-title">名词性从句</div>
-<div class="c-sub">主语/宾语/表语/同位语从句 · 四大位置</div><span class="c-badge ready">已就绪</span>
+<div class="c-sub">主语/宾语/表语/同位语 · 四大位置</div><span class="c-badge ready">已就绪</span>
 </a>
-<a class="course-card" href="状语从句.html">
+<a class="course-card grammar" href="状语从句.html">
 <div class="c-icon">🔗</div><div class="c-title">状语从句</div>
-<div class="c-sub">时间/条件/原因/让步/目的/结果从句</div><span class="c-badge ready">已就绪</span>
+<div class="c-sub">时间/条件/原因/让步/目的/结果</div><span class="c-badge ready">已就绪</span>
 </a>
-<a class="course-card" href="时态语态.html">
+<a class="course-card grammar" href="时态语态.html">
 <div class="c-icon">⏳</div><div class="c-title">时态语态</div>
-<div class="c-sub">六大核心时态 + 被动语态梳理</div><span class="c-badge ready">已就绪</span>
+<div class="c-sub">六大核心时态 + 被动语态</div><span class="c-badge ready">已就绪</span>
 </a>
-<a class="course-card" href="非谓语动词.html">
+<a class="course-card grammar" href="非谓语动词.html">
 <div class="c-icon">🔄</div><div class="c-title">非谓语动词</div>
-<div class="c-sub">不定式 to do · 动名词 doing · 分词 done</div><span class="c-badge ready">已就绪</span>
+<div class="c-sub">to do / doing / done</div><span class="c-badge ready">已就绪</span>
 </a>
-<a class="course-card featured" href="虚拟语气.html">
+<a class="course-card grammar" href="虚拟语气.html">
 <div class="c-icon">🎯</div><div class="c-title">虚拟语气</div>
-<div class="c-sub">if条件句 · wish/as if · 名词性从句虚拟</div><span class="c-badge new">新上线</span>
+<div class="c-sub">if条件句 · wish · 名词性从句虚拟</div><span class="c-badge ready">已就绪</span>
 </a>
+<a class="course-card grammar" href="特殊句式.html">
+<div class="c-icon">🔄</div><div class="c-title">特殊句式</div>
+<div class="c-sub">倒装·强调省略·反义疑问·There be</div><span class="c-badge ready">已就绪</span>
+</a>
+<a class="course-card grammar" href="独立主格.html">
+<div class="c-icon">🏗️</div><div class="c-title">独立主格</div>
+<div class="c-sub">非谓语延伸 · 长难句拆解</div><span class="c-badge ready">已就绪</span>
+</a>
+<a class="course-card grammar" href="词法专题.html">
+<div class="c-icon">📚</div><div class="c-title">词法专题（合集）</div>
+<div class="c-sub">四大词法模块合一 · 快速查阅</div><span class="c-badge ready">已就绪</span>
+</a>
+</div>
 
-	<a class="course-card featured" href="词法专题.html">
-	<div class="c-icon">📚</div><div class="c-title">词法专题</div>
-	<div class="c-sub">冠词名词主谓一致 · 代词形副 · 介词搭配 · 情态动词</div><span class="c-badge new">新上线</span>
-	</a>
-	<a class="course-card featured" href="特殊句式.html">
-	<div class="c-icon">🔄</div><div class="c-title">特殊句式</div>
-	<div class="c-sub">倒装句 · 强调省略 · 反义疑问 · There be</div><span class="c-badge new">新上线</span>
-	</a>
-	<a class="course-card featured" href="独立主格.html">
-	<div class="c-icon">🏗️</div><div class="c-title">独立主格</div>
-	<div class="c-sub">非谓语延伸 · 长难句拆解 · 高考高阶</div><span class="c-badge new">新上线</span>
-	</a>
-	</div>
-
-	<div class="footer">双击 HTML 文件即可投屏授课 &nbsp;|&nbsp; <span>⌂</span> 键返回导航 &nbsp;|&nbsp; 新东方面试试讲系列</div>
+<div class="footer">双击 HTML 即可投屏上课 &nbsp;|&nbsp; 共 14 门课程 &nbsp;|&nbsp; 新东方面试试讲系列</div>
 </div>
 </body>
 </html>
