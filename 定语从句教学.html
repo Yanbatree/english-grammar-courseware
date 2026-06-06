@@ -1623,7 +1623,7 @@ function goToSlide(index) {
 }
 
 function nextSlide() { goToSlide(currentSlide + 1); }
-function prevSlide() { if(currentSlide===0){window.open("index.html","_self");return} goToSlide(currentSlide - 1); }
+function prevSlide() { if((currentSlide===0)||(currentSlide===1&&location.search.includes("skipnav"))){window.open("index.html","_self");return} goToSlide(currentSlide - 1); }
 
 // Keyboard navigation
 document.addEventListener('keydown', (e) => {
@@ -1868,7 +1868,7 @@ console.log('🖱️  点击右侧圆点跳转页面');
 console.log('📱  支持触屏滑动翻页');
 console.log('🎮  拖拽游戏 & 点击答题互动');
 
-(function(){if(location.search.includes("skipnav")){goToSlide(1);history.replaceState(null,"",location.pathname)}})();
+(function(){if(location.search.includes("skipnav")){goToSlide(1);}})();
 </script>
 </body>
 </html>

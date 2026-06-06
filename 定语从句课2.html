@@ -702,7 +702,7 @@ function goToSlide(index) {
 }
 
 function nextSlide() { goToSlide(currentSlide + 1); }
-function prevSlide() { if(currentSlide===0){window.open("index.html","_self");return} goToSlide(currentSlide - 1); }
+function prevSlide() { if((currentSlide===0)||(currentSlide===1&&location.search.includes("skipnav"))){window.open("index.html","_self");return} goToSlide(currentSlide - 1); }
 
 document.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === 'PageDown') { e.preventDefault(); nextSlide(); }
@@ -825,7 +825,7 @@ function handleTouchEnd(e) {
   touchDragEl = null;
 }
 
-(function(){if(location.search.includes("skipnav")){goToSlide(1);history.replaceState(null,"",location.pathname)}})();
+(function(){if(location.search.includes("skipnav")){goToSlide(1);}})();
 </script>
 </body>
 </html>
