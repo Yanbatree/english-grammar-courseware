@@ -724,7 +724,7 @@ function goToSlide(index) {
 }
 
 function nextSlide() { goToSlide(currentSlide + 1); }
-function prevSlide() { goToSlide(currentSlide - 1); }
+function prevSlide() { if(currentSlide===0){window.open("index.html","_self");return} goToSlide(currentSlide - 1); }
 
 document.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === 'PageDown') { e.preventDefault(); nextSlide(); }
